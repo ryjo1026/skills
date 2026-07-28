@@ -77,7 +77,7 @@ Make the worktree your working directory for everything that follows — the che
 cd "$PATH_WT"
 ```
 
-If your shell doesn't persist cwd between commands, pass the path explicitly (`git -C "$PATH_WT" …`). The worktree is a *sibling* of the main checkout, so an agent whose file tools are scoped to the starting directory may need it added as a working root first — in Claude Code, `/add-dir "$PATH_WT"`.
+If your shell doesn't persist cwd between commands, pass the path explicitly (`git -C "$PATH_WT" …`). The worktree is a *sibling* of the main checkout, outside where you started — an agent can't issue slash commands, but a Claude Code user can then type `/cd "$PATH_WT"` (v2.1.169+) to relocate the session itself (cwd **and** its resume storage, so `--resume` from the worktree finds it later), or `/add-dir "$PATH_WT"` to allow edits there without moving the session.
 
 ### 5. Project setup
 
