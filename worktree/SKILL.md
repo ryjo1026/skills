@@ -69,14 +69,24 @@ PATH_WT="$CONTAINER/$SLUG"
 
 If the user hasn't said new-vs-existing, ask.
 
-### 4. Project setup
+### 4. Enter the worktree
+
+Make the worktree your working directory for everything that follows — the checkout you ran from is not where the work should happen:
+
+```bash
+cd "$PATH_WT"
+```
+
+If your shell doesn't persist cwd between commands, pass the path explicitly (`git -C "$PATH_WT" …`). The worktree is a *sibling* of the main checkout, so an agent whose file tools are scoped to the starting directory may need it added as a working root first — in Claude Code, `/add-dir "$PATH_WT"`.
+
+### 5. Project setup
 
 Run the repo's setup in the new worktree so it's ready to build/test. If the repo ships its own setup skill or script, use that instead of hand-rolling. Otherwise detect the ecosystem:
 
 - **Node monorepo (pnpm/npm/yarn):** install deps, then build the shared/workspace packages the app depends on — a fresh worktree has no built `dist/`.
 - **Auto-detect otherwise:** `Cargo.toml`→`cargo build`; `go.mod`→`go mod download`; `requirements.txt`/`pyproject.toml`→pip/poetry install.
 
-### 5. Report the path — stay tool-agnostic
+### 6. Report the path — stay tool-agnostic
 
 Print the worktree path and the open commands, and stop. Do **not** launch or assume any specific tool.
 
