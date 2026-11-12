@@ -8,7 +8,7 @@ This repo is one skill **source** among several my [dotfiles](https://github.com
 
 | Skill | What it does |
 | --- | --- |
-| [`grill-me`](grill-me/SKILL.md) | Stress-test a plan, decision, or idea by interviewing you in rounds over its design tree, with a recommended answer for each question |
+| [`grill-me`](grill-me/SKILL.md) | Stress-test a plan, decision, or idea by interviewing you in rounds over its design tree, with a recommended answer for each question. Forked from [Matt Pocock's `grilling`](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) (MIT) |
 | [`worktree`](worktree/SKILL.md) | Create an externally-openable git worktree at a predictable sibling path — usable by any editor/multiplexer, unlike agent-native worktree features |
 
 ## Use without the router
